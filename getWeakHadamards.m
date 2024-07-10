@@ -5,7 +5,7 @@ function WeakHadamards = getWeakHadamards(n)
     numStart = (3^n - 3)*(3^n - 1)/16;
     sizeStart = 2;
 
-    while sizeStart <= n - 1
+    while sizeStart <= n - 2
         idxsNew = []; numNew = 0;
         for j = 1:numStart
             idxsStart = idxsStartOptions(j, :);
