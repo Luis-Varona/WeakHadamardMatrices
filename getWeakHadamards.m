@@ -29,7 +29,7 @@ function WeakHadamards = getWeakHadamards(n)
         last = idxsStart(end);
         for idxNext = last+1:ct
             idxsCombo = [idxsStart, idxNext];
-            [quasi, order] = isQuasiOrthogonalizable(vecs(:, idxsCombo))
+            [quasi, order] = isQuasiOrthogonalizable(vecs(:, idxsCombo));
             if quasi
                 idxsFinalOptions = [idxsFinalOptions; idxsCombo(order)];
                 numFinal = numFinal + 1;
