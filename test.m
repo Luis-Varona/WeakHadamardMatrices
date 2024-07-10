@@ -1,1 +1,3 @@
-getWeakHadamards(3)
+addpath(genpath('isequaltol.m'))
+addpath(genpath('npermutek'))
+getWeakHadamards(5)

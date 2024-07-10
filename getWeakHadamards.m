@@ -1,5 +1,5 @@
-function WeakHadamards = getWeakHadamards(order)
-    [vecs, ct] = LinearIndepZeroOneNegs(order);
+function WeakHadamards = getWeakHadamards(n)
+    [vecs, ct] = LinearIndepZeroOneNegs(n);
     idxsAll = 1:ct;
     idxsStartOptions = nchoosek(idxsAll, 2);
     numStart = (3^n - 3)*(3^n - 1)/16;
@@ -9,9 +9,9 @@ function WeakHadamards = getWeakHadamards(order)
         idxsNew = []; numNew = 0;
         for j = 1:numStart
             idxsStart = idxsStartOptions(j, :);
-            last = idxsCombo(end);
-            for idxNext = last+1:n
-                idxsCombo = [idxsStart, idxsNext];
+            last = idxsStart(end);
+            for idxNext = last+1:ct
+                idxsCombo = [idxsStart, idxNext];
                 if isQuasiOrthogonalizable(vecs(:, idxsCombo))
                     idxsNew = [idxsNew; idxsCombo];
                     numNew = numNew + 1;
@@ -28,7 +28,7 @@ function WeakHadamards = getWeakHadamards(order)
         idxsStart = idxsStartOptions(j, :);
         last = idxsCombo(end);
         for idxNext = last+1:n
-            idxsCombo = [idxsStart, idxsNext];
+            idxsCombo = [idxsStart, idxNext];
             if isQuasiOrthogonalizable(vecs(:, idxsCombo))
                 idxsFinalOptions = [idxsFinalOptions; idxsCombo];
                 numFinal = numFinal + 1;
